@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-OPENAI_KEY = "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"
+OPENAI_KEY = os.getenv("OPENAI_API_KEY")
 
 @app.route("/")
 def home():
