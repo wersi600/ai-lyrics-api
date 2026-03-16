@@ -15,8 +15,15 @@ def lyrics():
 
     data = request.json
 
+    style = data.get("style", "")
+    theme = data.get("theme", "")
+    vocal = data.get("vocal", "")
+
     prompt = f"""
-노래 제목과 가사를 만들어라.
+{style} 스타일의 3분30초 정도 길이의 노래 가사를 만들어라.
+
+주제: {theme}
+보컬: {vocal}
 
 출력 형식
 
@@ -54,11 +61,15 @@ def lyrics():
     title = parts[0].replace("제목:", "").strip()
     lyrics = parts[1].strip()
 
+    # Suno용 구조 변환
+    lyrics = lyrics.replace("1절", "[Verse 1]")
+    lyrics = lyrics.replace("2절", "[Verse 2]")
+    lyrics = lyrics.replace("후렴", "[Chorus]")
+
     return jsonify({
         "title": title,
         "lyrics": lyrics
     })
-
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
