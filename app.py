@@ -55,7 +55,12 @@ def lyrics():
 
     lyrics = result["choices"][0]["message"]["content"]
 
-    return jsonify({"lyrics": lyrics})
+    title = lyrics.split("\n")[0]
+
+return jsonify({
+    "title": title,
+    "lyrics": lyrics
+})
 
 
 if __name__ == "__main__":
