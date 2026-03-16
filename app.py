@@ -47,6 +47,12 @@ def lyrics():
 
     result = response.json()
 
+    # 오류 체크 (choices 없을 때)
+    if "choices" not in result:
+        return jsonify({
+            "error": result
+        })
+
     lyrics = result["choices"][0]["message"]["content"]
 
     return jsonify({"lyrics": lyrics})
