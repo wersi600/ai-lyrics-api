@@ -20,7 +20,7 @@ def lyrics():
     vocal = data.get("vocal", "")
 
     prompt = f"""
-{style} 스타일의 노래 가사를 만들어라.
+{style} 스타일의 3분정도 길이의 노래 가사를 만들어라.
 
 주제: {theme}
 보컬: {vocal}
@@ -36,6 +36,7 @@ def lyrics():
 2절 4줄
 후렴 4줄
 
+"별빛" 단어 사용하지 말고
 설명 없이 출력해라.
 """
 
