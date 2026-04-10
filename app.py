@@ -20,7 +20,7 @@ def lyrics():
     vocal = data.get("vocal", "")
 
     prompt = f"""
-{style} 스타일의 3분정도 길이의 노래 가사를 만들어라.
+{style} 스타일의 3분30초 정도 길이의 노래 가사를 만들어라.
 
 주제: {theme}
 보컬: {vocal}
